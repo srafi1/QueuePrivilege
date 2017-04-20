@@ -4,9 +4,13 @@
 //HW32 - Getting past the velvet rope
 //2017-04-19
 
+import java.util.ArrayList;
+
+
 public class ArrayPriorityQueue {
 
-    private ArrayList _data;
+
+    private ArrayList<String> _data;
     private int _size;
 
     public ArrayPriorityQueue() {
@@ -24,6 +28,7 @@ public class ArrayPriorityQueue {
 	    i--;
 	}
 	_data.add(i, s);
+	_size++;
     }
 
     public boolean isEmpty(){
@@ -31,12 +36,45 @@ public class ArrayPriorityQueue {
     }
 
     public String peekMin(){
-	_data.get(0);
+	return _data.get(0);
     }
 
     public String removeMin(){
-	_data.remove(0);
+	_size--;
+	return _data.remove(0);
     }
 
+    public String toString(){
+	String retStr = "";
+	for (int i = 0 ; i < _size -1 ; i++){
+	    retStr += _data.get(i);
+	}
+	return retStr;
+    }
+
+    public static void main(String[] args){
+
+	ArrayPriorityQueue APQ = new ArrayPriorityQueue();
+
+	APQ.add("2 popsicle");
+	
+	System.out.println(APQ);
+
+	APQ.add("1 ice cream");
+	
+	System.out.println(APQ);
+
+	APQ.add("3 sundae");
+	
+	System.out.println(APQ);
+
+	APQ.add("3 milkshake");
+	
+	System.out.println(APQ);
+	
+	System.out.println(APQ.removeMin());
+
+	System.out.println(APQ);
+    }
     
 }
