@@ -19,15 +19,15 @@ public class ArrayPriorityQueue {
     }
 
     public boolean isEmpty(){
-
+	return _size == 0;
     }
 
     public String peekMin(){
-
+	_data.get(_size-1);
     }
 
     public String removeMin(){
-
+	_data.remove(_size-1);
     }
 
     
