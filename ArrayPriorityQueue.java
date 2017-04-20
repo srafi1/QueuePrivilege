@@ -14,8 +14,16 @@ public class ArrayPriorityQueue {
 	_size = 0;
     }
 
+    public int getPriority(String s) {
+	return (int)s.charAt(0);
+    }
+    
     public void add(String s) {
-	
+	int i = _data.size();
+	while (i > 0 || getPriority(s) > getPriority(_data.get(i))) {
+	    i--;
+	}
+	_data.add(i, s);
     }
 
     public boolean isEmpty(){
@@ -23,11 +31,11 @@ public class ArrayPriorityQueue {
     }
 
     public String peekMin(){
-	_data.get(_size-1);
+	_data.get(0);
     }
 
     public String removeMin(){
-	_data.remove(_size-1);
+	_data.remove(0);
     }
 
     
