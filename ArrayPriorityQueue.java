@@ -14,10 +14,21 @@ public class ArrayPriorityQueue {
 	_size = 0;
     }
 
-    
-
     public void add(String s) {
 	
     }
+
+    public boolean isEmpty(){
+
+    }
+
+    public String peekMin(){
+
+    }
+
+    public String removeMin(){
+
+    }
+
     
 }
