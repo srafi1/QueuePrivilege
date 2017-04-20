@@ -9,13 +9,10 @@ import java.util.ArrayList;
 
 public class ArrayPriorityQueue {
 
-
     private ArrayList<String> _data;
-    private int _size;
 
     public ArrayPriorityQueue() {
 	_data = new ArrayList<String>();
-	_size = 0;
     }
 
     public int getPriority(String s) {
@@ -23,16 +20,15 @@ public class ArrayPriorityQueue {
     }
     
     public void add(String s) {
-	int i = _data.size();
-	while (i > 0 || getPriority(s) > getPriority(_data.get(i))) {
+	int i = _data.size() - 1;
+	while (i >= 0 && getPriority(s) > getPriority(_data.get(i))) {
 	    i--;
 	}
-	_data.add(i, s);
-	_size++;
+	_data.add(i + 1, s);
     }
 
     public boolean isEmpty(){
-	return _size == 0;
+	return _data.size() == 0;
     }
 
     public String peekMin(){
@@ -40,40 +36,25 @@ public class ArrayPriorityQueue {
     }
 
     public String removeMin(){
-	_size--;
 	return _data.remove(0);
     }
 
     public String toString(){
-	String retStr = "";
-	for (int i = 0 ; i < _size -1 ; i++){
-	    retStr += _data.get(i);
-	}
-	return retStr;
+	return _data.toString();
     }
 
     public static void main(String[] args){
 
 	ArrayPriorityQueue APQ = new ArrayPriorityQueue();
-
-	APQ.add("2 popsicle");
-	
+	APQ.add("2popsicle");	
 	System.out.println(APQ);
-
-	APQ.add("1 ice cream");
-	
+	APQ.add("1ice cream");
 	System.out.println(APQ);
-
-	APQ.add("3 sundae");
-	
+	APQ.add("3sundae");
 	System.out.println(APQ);
-
-	APQ.add("3 milkshake");
-	
+	APQ.add("3milkshake");
 	System.out.println(APQ);
-	
 	System.out.println(APQ.removeMin());
-
 	System.out.println(APQ);
     }
     
